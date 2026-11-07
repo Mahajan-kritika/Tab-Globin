@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Goblin",
+  "version": "1.0.0",
+  "description": "Put inactive tabs to sleep without closing them, protect important tabs, and save browsing sessions.",
+  "permissions": ["tabs", "storage", "scripting"],
+  "optional_host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Tab Goblin",
+    "default_popup": "popup.html"
+  }
+}

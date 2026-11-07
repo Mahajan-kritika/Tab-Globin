@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tab Goblin</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <header class="topbar"><div class="brand-mark">TG</div><div><h1>TAB GOBLIN</h1><p>Your tabs, under control.</p></div><button id="refresh" class="icon-button" title="Refresh tabs" aria-label="Refresh tabs">↻</button></header>
+    <section class="mood-card" id="mood-card">
+      <div class="goblin" id="goblin" aria-hidden="true">😊</div>
+      <div class="mood-copy"><span class="eyebrow">GOBLIN MOOD: <b id="mood-name">Happy</b></span><h2 id="mood-message">Your browser is peaceful!</h2><p id="tab-count">0 tabs open</p></div>
+    </section>
+    <section class="stats" aria-label="Tab summary">
+      <div><strong id="sleeping-count">0</strong><span>Sleeping</span></div><div><strong id="active-count">0</strong><span>Active</span></div><div><strong id="protected-count">0</strong><span>Protected</span></div>
+    </section>
+    <button id="feed" class="primary-button">Feed the Goblin <span>✦</span></button>
+    <p id="notice" role="status" aria-live="polite"></p>
+    <nav class="tabs-nav"><button class="nav-button selected" data-view="tabs">Your tabs</button><button class="nav-button" data-view="keep">Keep list</button><button class="nav-button" data-view="sessions">Sessions</button></nav>
+    <section id="tabs-view" class="view active-view">
+      <div class="list-controls"><label>Sleep tabs inactive for <select id="threshold"><option value="0">Any tracked time</option><option value="3600000">1 hour</option><option value="86400000">1 day</option><option value="259200000">3 days</option></select></label><button id="sleep-threshold" class="small-button">Sleep eligible</button></div>
+      <div id="tab-list" class="tab-list"></div>
+    </section>
+    <section id="keep-view" class="view"><div class="section-title"><h2>Protected tabs</h2><span>Never slept</span></div><div id="keep-list" class="tab-list"></div></section>
+    <section id="sessions-view" class="view">
+      <form id="save-form"><input id="session-name" maxlength="60" placeholder="Name this session" required><button class="small-button" type="submit">Save current tabs</button></form>
+      <p class="fine-print">Sessions save URLs and tab order—not live page state or unsaved form contents.</p><div id="session-list"></div>
+    </section>
+    <footer>Tabs stay open when sleeping. Click a sleeping tab to wake it.</footer>
+  </main>
+  <script src="utils/storage.js"></script><script src="utils/time-format.js"></script><script src="utils/tab-filter.js"></script><script src="scripts/goblin-mood.js"></script><script src="popup.js"></script>
+</body>
+</html>
